@@ -1,4 +1,4 @@
-FROM ubi7
+FROM registry.access.redhat.com/ubi7/ubi:latest
 
 ARG DEFAULT_USER_ID=1001
 
