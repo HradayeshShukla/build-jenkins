@@ -1,4 +1,4 @@
-FROM  ose-jenkins-agent-maven
+FROM ubi7
 
 ARG DEFAULT_USER_ID=1001
 
