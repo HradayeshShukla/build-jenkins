@@ -1,12 +1,12 @@
-FROM registry.access.redhat.com/ubi7/ubi:latest
+FROM openshift4/ose-jenkins-agent-maven
 
 ARG DEFAULT_USER_ID=1001
 
 USER root
 # Setup yum repositories
-RUN subscription-manager repos --enable=rhel-7-server-extras-rpms \
- && subscription-manager repos --enable=rhel-7-server-optional-rpms \
- && subscription-manager repos --enable=rhel-7-server-rpms
+#RUN yum repos --enable=rhel-7-server-extras-rpms \
+# && subscription-manager repos --enable=rhel-7-server-optional-rpms \
+# && subscription-manager repos --enable=rhel-7-server-rpms
 
 # Install Chrome
 RUN yum -y install redhat-lsb libXScrnSaver \
