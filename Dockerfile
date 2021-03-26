@@ -9,7 +9,7 @@ USER root
 # && subscription-manager repos --enable=rhel-7-server-rpms
 
 # Install Chrome
-RUN yum -y install redhat-lsb libXScrnSaver \
+RUN yum repolist && yum -y install redhat-lsb libXScrnSaver \
  && wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
  && yum -y localinstall google-chrome-stable_current_x86_64.rpm
 
