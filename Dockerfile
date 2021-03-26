@@ -1,4 +1,4 @@
-FROM  openshift4/ose-jenkins-agent-maven
+FROM  ose-jenkins-agent-maven
 
 ARG DEFAULT_USER_ID=1001
 
