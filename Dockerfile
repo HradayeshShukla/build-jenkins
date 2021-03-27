@@ -1,4 +1,4 @@
-FROM registry.redhat.io/openshift4/ose-jenkins-agent-maven:v4.5 
+FROM registry.redhat.io/openshift4/ose-jenkins-agent-maven:v4.7
 ARG DEFAULT_USER_ID=1001
 
 USER root
