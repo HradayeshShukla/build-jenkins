@@ -1,5 +1,4 @@
-FROM default-route-openshift-image-registry.apps.mycluster.example.com/test-app/ose-jenkins-agent-maven:v4.5
-
+FROM registry.redhat.io/openshift4/ose-jenkins-agent-maven:v4.5 
 ARG DEFAULT_USER_ID=1001
 
 USER root
