@@ -7,6 +7,8 @@ USER root
 # && subscription-manager repos --enable=rhel-7-server-optional-rpms \
 # && subscription-manager repos --enable=rhel-7-server-rpms
 
+COPY ./etc-pki-entitlement /etc/pki/entitlement
+
 # Install Chrome
 RUN cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
  && wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
