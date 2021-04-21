@@ -1,4 +1,5 @@
-FROM openshift/ose-jenkins-agent-maven:v4.5 
+#FROM openshift/ose-jenkins-agent-maven:v4.5 
+FROM image-registry.openshift-image-registry.svc:5000/openshift/ose-jenkins-agent-maven:v4.5
 ARG DEFAULT_USER_ID=1001
 
 USER root
