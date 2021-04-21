@@ -8,7 +8,7 @@ USER root
 # && subscription-manager repos --enable=rhel-7-server-optional-rpms \
 # && subscription-manager repos --enable=rhel-7-server-rpms
 
-RUN sleep 200
+RUN sleep 60
 
 # Install Chrome
 RUN cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
