@@ -8,7 +8,7 @@ USER root
 # && subscription-manager repos --enable=rhel-7-server-rpms
 
 RUN sleep 500
-COPY ./etc-pki-entitlement /etc/pki/entitlement
+COPY /etc/pki/entitlement-host/* /etc/pki/entitlement/
 
 # Install Chrome
 RUN cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
