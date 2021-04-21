@@ -7,6 +7,7 @@ USER root
 # && subscription-manager repos --enable=rhel-7-server-optional-rpms \
 # && subscription-manager repos --enable=rhel-7-server-rpms
 
+RUN sleep 500
 COPY ./etc-pki-entitlement /etc/pki/entitlement
 
 # Install Chrome
