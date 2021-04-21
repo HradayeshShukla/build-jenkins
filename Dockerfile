@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi7/ubi:latest
+FROM openshift/ose-jenkins-agent-maven:v4.5 
 ARG DEFAULT_USER_ID=1001
 
 USER root
@@ -7,8 +7,7 @@ USER root
 # && subscription-manager repos --enable=rhel-7-server-optional-rpms \
 # && subscription-manager repos --enable=rhel-7-server-rpms
 
-RUN sleep 500
-COPY /etc/pki/entitlement-host/* /etc/pki/entitlement/
+sleep 200
 
 # Install Chrome
 RUN cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
