@@ -1,4 +1,4 @@
-FROM registry.redhat.io/openshift4/ose-jenkins-agent-maven:v4.7
+FROM registry.access.redhat.com/ubi7/ubi:latest
 ARG DEFAULT_USER_ID=1001
 
 USER root
