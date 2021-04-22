@@ -1,5 +1,5 @@
-FROM registry.redhat.io/openjdk/openjdk-11-rhel7
-
+#FROM registry.redhat.io/openjdk/openjdk-11-rhel7
+FROM registry.access.redhat.com/ubi7/ubi
 
 #FROM registry.redhat.io/rhel7/rhel:7.9
 ARG DEFAULT_USER_ID=1001
