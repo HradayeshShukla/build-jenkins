@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/openjdk-11
+FROM registry.redhat.io/openjdk/openjdk-11-rhel7
 
 
 #FROM registry.redhat.io/rhel7/rhel:7.9
@@ -10,7 +10,7 @@ USER root
 # && subscription-manager repos --enable=rhel-7-server-optional-rpms \
 # && subscription-manager repos --enable=rhel-7-server-rpms
 
-RUN sleep 60
+#RUN sleep 60
 
 # Install Chrome
 RUN cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
