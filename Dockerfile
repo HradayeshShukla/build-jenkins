@@ -5,12 +5,14 @@ FROM registry.access.redhat.com/ubi7/ubi
 ARG DEFAULT_USER_ID=1001
 
 USER root
-# Setup yum repositories
-#RUN yum repos --enable=rhel-7-server-extras-rpms \
-# && subscription-manager repos --enable=rhel-7-server-optional-rpms \
-# && subscription-manager repos --enable=rhel-7-server-rpms
 
-#RUN sleep 60
+RUN rm /etc/rhsm-host
+# Setup yum repositories
+RUN yum repos --enable=rhel-7-server-extras-rpms \
+ && subscription-manager repos --enable=rhel-7-server-optional-rpms \
+ && subscription-manager repos --enable=rhel-7-server-rpms
+
+RUN sleep 60
 
 # Install Chrome
 RUN cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
