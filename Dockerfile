@@ -18,7 +18,7 @@ RUN yum clean all
 # yum repository info provided by Satellite
 RUN rm /etc/rhsm-host && \
 yum repolist --verbose &&\
-cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
+cat /etc/redhat-release && yum repolist && yum -y install vulkan redhat-lsb libXScrnSaver \
 && curl -o google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
 && yum -y localinstall google-chrome-stable_current_x86_64.rpm
 
