@@ -1,5 +1,5 @@
-## FROM registry.redhat.io/rhel7:latest
-FROM registry.redhat.io/openshift/jenkins-agent-maven:v4.5
+FROM registry.redhat.io/rhel7:latest
+##FROM registry.redhat.io/openshift/jenkins-agent-maven:v4.5
 
 USER root
 # Copy entitlements
