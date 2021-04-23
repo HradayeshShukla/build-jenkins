@@ -1,24 +1,30 @@
-#FROM registry.redhat.io/openjdk/openjdk-11-rhel7
-FROM registry.access.redhat.com/ubi7/ubi
-
-#FROM registry.redhat.io/rhel7/rhel:7.9
-ARG DEFAULT_USER_ID=1001
-
+FROM registry.redhat.io/rhel7:latest
 USER root
+# Copy entitlements
+COPY ./etc-pki-entitlement /etc/pki/entitlement
+# Copy repository configuration 
+COPY ./yum.repos.d /etc/yum.repos.d
+# Delete /etc/rhsm-host to use entitlements from the build container
+RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
 
-RUN rm /etc/rhsm-host
-# Setup yum repositories
-#RUN yum repos --enable=rhel-7-server-extras-rpms \
-# && subscription-manager repos --enable=rhel-7-server-optional-rpms \
-# && subscription-manager repos --enable=rhel-7-server-rpms
+#RUN cat /etc/yum/pluginconf.d/subscription-manager.conf
 
-#RUN sleep 60
+RUN yum clean all 
 
-# Install Chrome
-RUN cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
- && wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
- && yum -y localinstall google-chrome-stable_current_x86_64.rpm
+#RUN yum-config-manager
 
+# yum repository info provided by Satellite
+RUN rm /etc/rhsm-host && \
+yum repolist &&\
+yum -y update && cat /etc/redhat-release && yum repolist && yum -y install vulkan-loader redhat-lsb libXScrnSaver \
+&& wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
+&& yum -y localinstall google-chrome-stable_current_x86_64.rpm
+
+# Remove entitlements
+rm -rf /etc/pki/entitlement
+
+
+### From original Dockerfile ###
 # Install Chrome Driver
 ENV CHROME_DRIVER_PATH /usr/local/bin/chromedriver
 RUN CHROME_DRIVER_VERSION=`curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE` \
