@@ -8,9 +8,9 @@ USER root
 
 RUN rm /etc/rhsm-host
 # Setup yum repositories
-RUN yum repos --enable=rhel-7-server-extras-rpms \
- && subscription-manager repos --enable=rhel-7-server-optional-rpms \
- && subscription-manager repos --enable=rhel-7-server-rpms
+#RUN yum repos --enable=rhel-7-server-extras-rpms \
+# && subscription-manager repos --enable=rhel-7-server-optional-rpms \
+# && subscription-manager repos --enable=rhel-7-server-rpms
 
 RUN sleep 60
 
