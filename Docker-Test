@@ -1,0 +1,3 @@
+FROM registry.redhat.io/rhel7/rhel:latest   ### 7 layer
+COPY /home/hshukla/app.java  /usr/local/bin/app.java && RUN yum install httpd 
+
