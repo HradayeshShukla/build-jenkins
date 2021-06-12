@@ -5,6 +5,7 @@ USER root
 RUN sleep 400
 # Copy entitlements
 COPY ./2144838495922035268*.pem /etc/pki/entitlement
+COPY ./yum.repos.d /etc/yum.repos.d
 # Copy repository configuration 
 # COPY ./yum.repos.d /etc/yum.repos.d
 # Delete /etc/rhsm-host to use entitlements from the build container
