@@ -6,7 +6,7 @@ USER root
 # Copy entitlements
 #COPY ./etc-pki-entitlement /etc/pki/entitlement
 # COPY ./yum.repos.d /etc/yum.repos.d
-RUN cp /tmp/build/inputs/etc-pki-entitlement /etc/pki/entitlement && cp /tmp/build/inputs/yum.repos.d /etc/yum.repos.d 
+RUN cp ./etc-pki-entitlement /etc/pki/entitlement && cp ./yum.repos.d /etc/yum.repos.d
 
 # Copy repository configuration 
 # COPY ./yum.repos.d /etc/yum.repos.d
