@@ -15,12 +15,12 @@ COPY ./yum.repos.d /etc/yum.repos.d
 # RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
 
 
-RUN yum clean all 
+#RUN yum clean all 
 
 #RUN yum-config-manager
 
 # yum repository info provided by Satellite
-RUN rm /etc/rhsm-host && \
+RUN rm /etc/rhsm-host && rm /etc/pki/entitlement-host && \
 yum repolist --verbose &&\
 cat /etc/redhat-release &&  sleep 80 && yum repolist && yum -y install vulkan redhat-lsb libXScrnSaver \
 && curl -o google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
