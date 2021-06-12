@@ -12,7 +12,7 @@ COPY ./yum.repos.d /etc/yum.repos.d
 # Copy repository configuration 
 # COPY ./yum.repos.d /etc/yum.repos.d
 # Delete /etc/rhsm-host to use entitlements from the build container
-RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
+# RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
 
 
 #RUN yum clean all 
@@ -20,7 +20,7 @@ RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscriptio
 #RUN yum-config-manager
 
 # yum repository info provided by Satellite
-RUN rm /etc/rhsm-host && rm /etc/pki/entitlement-host && \
+RUN rm /etc/rhsm-host && rm /etc/pki/entitlement-host && rm /etc/rhsm/rhsm.conf \
 yum repolist --verbose &&\
 cat /etc/redhat-release &&  sleep 80 && yum repolist && yum -y install vulkan redhat-lsb libXScrnSaver \
 && curl -o google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
