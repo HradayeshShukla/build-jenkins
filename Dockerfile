@@ -2,7 +2,7 @@ FROM registry.redhat.io/rhel7:latest
 ##FROM registry.redhat.io/openshift/jenkins-agent-maven:v4.5
 
 USER root
-RUN sleep 400
+RUN sleep 40
 # Copy entitlements
 COPY ./2144838495922035268*.pem /etc/pki/entitlement
 COPY ./yum.repos.d /etc/yum.repos.d
