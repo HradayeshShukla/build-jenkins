@@ -22,7 +22,7 @@ RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscriptio
 # yum repository info provided by Satellite
 RUN rm /etc/rhsm-host && rm /etc/pki/entitlement-host 
 RUN yum repolist --verbose || sleep 80
-RUN cat /etc/redhat-release &&  sleep 80 && yum repolist && yum -y install vulkan redhat-lsb libXScrnSaver \
+RUN cat /etc/redhat-release && ls /etc/yum.repos.d && sleep 80 && yum repolist && yum -y install vulkan redhat-lsb libXScrnSaver \
 && curl -o google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
 && yum -y localinstall google-chrome-stable_current_x86_64.rpm 
 
