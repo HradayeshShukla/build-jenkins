@@ -4,7 +4,7 @@ FROM registry.redhat.io/rhel7:latest
 USER root
 RUN sleep 40
 # Copy entitlements
-COPY ./2144838495922035268*.pem /etc/pki/entitlement
+COPY ./etc-pki-entitlement /etc/pki/entitlement
 COPY ./yum.repos.d /etc/yum.repos.d
 # Copy repository configuration 
 # COPY ./yum.repos.d /etc/yum.repos.d
