@@ -2,7 +2,7 @@ FROM registry.redhat.io/rhel7:latest
 ##FROM registry.redhat.io/openshift/jenkins-agent-maven:v4.5
 
 USER root
-RUN sleep 40
+
 # Copy entitlements
 COPY ./etc-pki-entitlement /etc/pki/entitlement
 COPY ./yum.repos.d /etc/yum.repos.d
@@ -22,7 +22,7 @@ RUN rm /etc/rhsm-host && \
 yum repolist --verbose &&\
 cat /etc/redhat-release && yum repolist && yum -y install vulkan redhat-lsb libXScrnSaver \
 && curl -o google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
-&& yum -y localinstall google-chrome-stable_current_x86_64.rpm
+&& yum -y localinstall google-chrome-stable_current_x86_64.rpm && sleep 40 
 
 # Remove entitlements
 rm -rf /etc/pki/entitlement
