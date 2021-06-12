@@ -13,7 +13,7 @@ RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscriptio
 
 #RUN cat /etc/yum/pluginconf.d/subscription-manager.conf
 
-RUN yum clean all 
+#RUN yum clean all 
 
 #RUN yum-config-manager
 
