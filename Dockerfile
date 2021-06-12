@@ -12,7 +12,7 @@ COPY ./yum.repos.d /etc/yum.repos.d
 # Copy repository configuration 
 # COPY ./yum.repos.d /etc/yum.repos.d
 # Delete /etc/rhsm-host to use entitlements from the build container
-# RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
+RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
 
 
 #RUN yum clean all 
