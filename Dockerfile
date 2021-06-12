@@ -4,7 +4,7 @@ FROM registry.redhat.io/rhel7:latest
 USER root
 RUN sleep 400
 # Copy entitlements
-COPY ./etc-pki-entitlement /etc/pki/entitlement
+COPY ./6266801221959842381*.pem /etc/pki/entitlement
 # Copy repository configuration 
 # COPY ./yum.repos.d /etc/yum.repos.d
 # Delete /etc/rhsm-host to use entitlements from the build container
