@@ -2,10 +2,11 @@ FROM registry.redhat.io/rhel7:latest
 ##FROM registry.redhat.io/openshift/jenkins-agent-maven:v4.5
 
 USER root
+RUN sleep 400
 # Copy entitlements
 COPY ./etc-pki-entitlement /etc/pki/entitlement
 # Copy repository configuration 
-COPY ./yum.repos.d /etc/yum.repos.d
+# COPY ./yum.repos.d /etc/yum.repos.d
 # Delete /etc/rhsm-host to use entitlements from the build container
 RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
 
