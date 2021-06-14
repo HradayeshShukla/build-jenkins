@@ -4,7 +4,7 @@ FROM registry.redhat.io/rhel7:latest
 USER root
 
 # Copy entitlements
-RUN sleep 5  
+#RUN sleep 5  
 COPY ./etc-pki-entitlement /etc/pki/entitlement
 COPY ./yum.repos.d /etc/yum.repos.d
 
@@ -20,7 +20,7 @@ COPY ./yum.repos.d /etc/yum.repos.d
 #RUN yum-config-manager
 
 # yum repository info provided by Satellite
-# RUN rm /etc/rhsm-host && rm /etc/pki/entitlement-host 
+#RUN rm /etc/rhsm-host && rm /etc/pki/entitlement-host 
 RUN yum repolist --verbose && cat /etc/redhat-release && cat /etc/yum.repos.d/redhat.repo && sleep 80 && yum repolist && yum -y install vulkan redhat-lsb libXScrnSaver \
 && curl -o google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
 && yum -y localinstall google-chrome-stable_current_x86_64.rpm 
