@@ -1,6 +1,6 @@
 #FROM registry.redhat.io/rhel7:latest
 #FROM registry.access.redhat.com/openshift3/jenkins-2-rhel7:v3.11
-FROM registry.redhat.io/openshift4/ose-jenkins:v4.6
+FROM registry.redhat.io/openshift4/ose-jenkins-agent-base:v4.6
 
 USER root
 
