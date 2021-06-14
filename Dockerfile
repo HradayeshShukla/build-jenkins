@@ -1,5 +1,5 @@
-FROM registry.redhat.io/rhel7:latest
-##FROM registry.redhat.io/openshift/jenkins-agent-maven:v4.5
+#FROM registry.redhat.io/rhel7:latest
+FROM registry.access.redhat.com/openshift3/jenkins-2-rhel7:v3.11
 
 USER root
 
@@ -8,19 +8,14 @@ USER root
 COPY ./etc-pki-entitlement /etc/pki/entitlement
 COPY ./yum.repos.d /etc/yum.repos.d
 
-
-# Copy repository configuration 
-# COPY ./yum.repos.d /etc/yum.repos.d
-# Delete /etc/rhsm-host to use entitlements from the build container
-#RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
-
-
-#RUN yum clean all 
-
-#RUN yum-config-manager
+# 
+RUN sed -i".org" -e "s#^enabled=1#enabled=0#g" /etc/yum/pluginconf.d/subscription-manager.conf 
 
 # yum repository info provided by Satellite
-#RUN rm /etc/rhsm-host && rm /etc/pki/entitlement-host 
+
+
+# Delete /etc/rhsm-host to use entitlements from the build container
+RUN rm /etc/rhsm-host && rm /etc/pki/entitlement-host 
 RUN yum repolist --verbose && cat /etc/redhat-release && cat /etc/yum.repos.d/redhat.repo && sleep 80 && yum repolist && yum -y install vulkan redhat-lsb libXScrnSaver \
 && curl -o google-chrome-stable_current_x86_64.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
 && yum -y localinstall google-chrome-stable_current_x86_64.rpm 
